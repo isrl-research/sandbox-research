@@ -58,7 +58,7 @@ The sealed submission for Milestone 4 works differently — see Section 5.
 
 ## 4. GitHub Setup and Repository Structure
 
-> *The magic letter from this section is: take the word "gazette." Count how many letters it shares with the word "navigate." The magic letter is the one shared letter that appears in both words but is not a vowel.*
+> *The magic letter from this section is: take the word "market." Count how many letters it shares with the word "dream." The magic letter is the one shared letter that appears in both words but is not a vowel.*
 
 **Before March 8th EOD, you need to:**
 
@@ -128,7 +128,7 @@ Read your sub-part description in the GitHub issue fully. Then, working independ
 
 *Find your sources. Do not start reading them in depth yet.*
 
-> *The magic letter from this section: find the only letter that appears in "sources" and "primary" but does not appear in "secondary." That is your magic letter for this section.*
+> *The magic letter from this section: find the only letter that appears in "apple" and "stone" but does not appear in "clown." That is your magic letter for this section.*
 
 1. For each question your sub-part needs to answer, find the primary source document that contains the answer. Part 2 explains what a primary source is and how to find one
 2. For each source you find, write one line: what specific question does this document answer, and exactly where in the document (page number, regulation number, section, clause)
@@ -198,7 +198,7 @@ Contributions that do not meet these criteria will be acknowledged in the acknow
 
 ## 7. The Magic Sentence
 
-As you read through this document, you encountered a hidden letter in each main section. Each one was hidden differently — you will not find them all by skimming.
+As you read through this document, you encountered a hidden letter in each main section. Each one was hidden differently — you will not find them all by skimming. If you find more answer for the same question, you can choose either or both :>
 
 Once you have collected all the letters, form a sentence that contains each letter at least once, in any order. This is your **magic sentence**. You will submit it in the Milestone 0 Google Form.
 
