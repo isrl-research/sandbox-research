@@ -1,0 +1,91 @@
+EMF Enrichment Summary
+============================================================
+
+Total rows processed: 2291
+
+ins_number populated:           358 (15.6%)
+compound_name populated:        295 (12.9%)
+nutrient_class populated:       100 (4.4%)
+dairy_product_subtype:           32 (1.4%)
+milling_grade populated:         31 (1.4%)
+oil_fraction populated:          57 (2.5%)
+protein_fraction populated:      43 (1.9%)
+sugar_form populated:            42 (1.8%)
+language_tag populated:          12 (0.5%)
+
+f_revised: changes from f=base ingredient
+---------------------------------------------
+  f=base ingredient rows:     750
+  → raw_agricultural_material            515 (68.7%)
+  → processed_ingredient                 145 (19.3%)
+  → fortification_agent                   54 (7.2%)
+  → fermentation_agent                    36 (4.8%)
+
+Nutrient class distribution (nutrient_class != ''):
+---------------------------------------------
+  mineral_nutrient                      35
+  amino_acid                            26
+  vitamin_water_soluble                 26
+  vitamin_fat_soluble                   13
+
+Dairy product subtypes:
+---------------------------------------------
+  hard_cheese                            6
+  paneer                                 6
+  yogurt                                 6
+  fresh_curd                             4
+  heat_concentrated                      3
+  soft_cheese                            3
+  fermented_cream                        2
+  frozen_dessert                         1
+  fermented_milk                         1
+
+Oil fraction distribution:
+---------------------------------------------
+  refined                               23
+  hydrogenated                          13
+  palmolein                              8
+  kernel                                 4
+  fractionated                           4
+  interesterified                        3
+  stearin                                1
+  high_oleic                             1
+
+Protein fraction distribution:
+---------------------------------------------
+  plant_protein                         12
+  hydrolysate                           11
+  casein                                 8
+  whey_concentrate                       4
+  textured_plant_protein                 2
+  total_milk_protein                     2
+  egg_white_protein                      1
+  whey_hydrolysate                       1
+  whey_isolate                           1
+  microbial_protein                      1
+
+Milling grade distribution:
+---------------------------------------------
+  semolina                               8
+  fortified                              6
+  whole                                  5
+  starch                                 4
+  bran                                   3
+  gluten_extract                         3
+  refined                                2
+
+Sugar form distribution:
+---------------------------------------------
+  refined_sucrose                       27
+  sugar_alcohol                          5
+  raw_unrefined                          4
+  molasses_partial                       3
+  invert_sugar                           3
+
+Language tags detected:
+---------------------------------------------
+  hi                                     5
+  fr                                     2
+  de                                     2
+  es                                     2
+  vi                                     1

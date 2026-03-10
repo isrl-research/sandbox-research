@@ -1,0 +1,442 @@
+ Analysis: EMF Signal-Loss Taxonomy — Identifiers & Metatags Required
+
+ Context
+
+ The diagnostic (signal_loss_diagnostic.py) found 394 collision groups in 196 sources.
+ 86% are Type B (tag values exist but are too coarse), 32.5% Type A (NULL-driven),
+ 56% Type D (linguistic duplicates), 6.9% Type C (pipe compounds).
+ The dominant issue is B3: cross-source EMF overloading (254/394 groups = 64.5%) —
+ the same EMF key (e, m, f) means completely different things depending on the source.
+
+ This analysis classifies exactly what unique identifier or metatag would break each
+ collision cluster, ranked by severity (collision count × source breadth).
+
+ ---
+ Cluster 1 — INS-coded Food Additives  [CRITICAL · 15+ groups · ~300 variants]
+
+ Where it appears
+
+ Sources: synthetic (36 groups), mineral (14), soybean (30), palm (21),
+ sunflower (12), corn (15), tapioca (5), wood pulp (2), sugarcane (10)
+
+ What collapses
+
+ m=crystalline chemical + any f value is a black hole that swallows all of:
+ - Acidity regulators: INS 260, 270, 296, 325, 330, 331, 341, 524 — all distinct acids/salts
+ - Anticaking agents: INS 341, 504, 553, silicon dioxide, calcium silicate, zinc oxide
+ - Preservatives: INS 200, 202, 211, 212, 223, 224 — sorbates vs benzoates vs sulphites
+ - Stabilisers: INS 170, 339, 340, 341, 450, 452, 508, 516 — all distinct phosphate salts
+ - Colours: INS 102, 110, 129, 132, 133 + lake forms — entirely different dyes
+ - Raising agents: INS 500i, 500ii, 503, 341 — carbonate vs bicarbonate vs ammonium salts
+ - Humectants: INS 422 (glycerol) vs 451/452 (polyphosphates) — not remotely similar
+ - Antioxidants: BHT (INS 321) vs TBHQ (INS 319) — different regulatory profiles entirely
+ - Flavour enhancers: INS 620–631, 635 — MSG vs ribonucleotides vs disodium inosinate
+
+ m=emulsifier powder + f=emulsifier/stabiliser collapses:
+ - INS 429, 442, 471, 472e, 475, 477, 478, 479, 491, 492 — chemically and functionally distinct
+ - E.g. PGPR (INS 476) replaces cocoa butter fat; lecithin (INS 322) is water-dispersible
+ — treating these as the same ingredient is a serious tagging error
+
+ Root cause
+
+ m (material/form) and f (function) capture class, but INS-coded additives are defined
+ by their specific molecular identity. The EMF triad has no slot for chemical identity.
+
+ Required metatag
+
+ ins_number : str   # Codex Alimentarius INS code, e.g. "471", "330i", "160b(i)"
+ Scope: applies to ALL synthetic/mineral variants whose variant name or could_be contains an
+ INS number or chemical name. Estimated coverage: ~400–500 variants across the corpus.
+
+ Secondary identifier also needed (same cluster)
+
+ For cases where INS number is absent but chemical name is in the variant string:
+ compound_name : str  # IUPAC or Codex common name, e.g. "citric acid", "sodium benzoate"
+ These two together would resolve ~80% of B-type collisions in synthetic and mineral.
+
+ ---
+ Cluster 2 — Vitamins, Amino Acids & Micronutrients  [HIGH · 4 groups · ~75 variants]
+
+ Where it appears
+
+ Sources: synthetic (groups at m=crystalline chemical, f=base ingredient and f=NULL)
+
+ What collapses
+
+ e=NULL, m=crystalline chemical, f=base ingredient absorbs 27 distinct compounds:
+ - Fat-soluble vitamins: Vitamin A (retinol), D2, D3, E, K
+ - Water-soluble vitamins: B1 (thiamin), B2, B3 (niacin), B5, B6, B7 (biotin), B9 (folic acid), C
+ - Amino acids: valine, lysine, threonine, leucine, methionine, l-arginine, taurine, l-carnitine
+ - These are not interchangeable — completely different biochemical roles, RDAs, safety profiles
+
+ f=NULL makes it worse: vitamin D2 vs D3 differ in bioavailability — this is medically
+ significant and invisible in the current EMF scheme.
+
+ Root cause
+
+ The EMF model treats "crystalline chemical used as a base ingredient" as a category.
+ But micronutrients are specific molecules, not categories. f=base ingredient is wrong
+ here anyway — vitamins are fortification agents or supplements, not base ingredients.
+
+ Required metatags
+
+ nutrient_class : enum  # vitamin_fat_soluble | vitamin_water_soluble | amino_acid |
+                         # mineral_salt | coenzyme | nucleotide
+ compound_name  : str   # "thiamine hydrochloride", "folic acid", "l-leucine"
+ Additionally: f_explicit for these rows should be corrected to fortification agent
+ or dietary supplement — current f=base ingredient is itself a tagging error.
+
+ ---
+ Cluster 3 — Dairy Fermented Products  [HIGH · 2 groups · ~35 variants]
+
+ Where it appears
+
+ Source: milk — e=fermentation, m=dense block, f=base ingredient (18 variants)
+ and partial overlaps with e=fermentation, m=powder, f=base ingredient
+
+ What collapses
+
+ A single EMF key covers: curd, dahi, cheese (multiple types), paneer, yogurt, yoghurt,
+ chhena, sour cream, cultured cream, paneer dices — these are:
+ - Different starting cultures (mesophilic for cheese vs thermophilic for yogurt)
+ - Different fat contents (cream cheese vs chhena vs low-fat curd)
+ - Different textures (dense block is too coarse — paneer ≠ cheddar ≠ fresh curd)
+ - Different regulatory categories in FSSAI/Codex
+
+ m=dense block is the failure point — it cannot distinguish "pressed curd cheese"
+ from "heat-acid precipitated paneer" from "cultured cream cheese".
+
+ Required metatag
+
+ dairy_product_subtype : enum
+   # fresh_curd | paneer | hard_cheese | soft_cheese | yogurt |
+   # fermented_cream | whey_cheese | cultured_milk
+ This is an m-level refinement — m should become fermented_dairy with a subtype,
+ or m values need to be split into dense_curd, pressed_cheese, soft_fresh_cheese.
+
+ Cross-implication
+
+ The e field fermentation is doing too much work. The culture type drives the product
+ identity more than the process name:
+ culture_type : str  # "lactic acid bacteria", "mesophilic", "thermophilic", "rennet"
+
+ ---
+ Cluster 4 — Lactic Cultures & Microbial Enzymes  [HIGH · 2 groups · ~35 variants]
+
+ Where it appears
+
+ Source: milk — e=fermentation, m=NULL, f=base ingredient (17 variants)
+ Also: aspergillus oryzae (6 variants), aspergillus niger (4), kluyveromyces lactis (2)
+
+ What collapses
+
+ milk with e=fermentation, m=NULL absorbs:
+ - Active lactic cultures (generic)
+ - Named species: Bifidobacterium lactis, S.thermophilus, L.bulgaricus, L.acidophilus
+ - Cheese-specific: Romano cheese enzymes (rennet)
+
+ aspergillus oryzae with e=NULL, m=NULL, f=flour treatment agent absorbs:
+ - Flour improver INS 1100 (α-amylase), INS 1101 (protease), INS 1104 (lipase) — different enzymes
+
+ aspergillus niger absorbs: enzyme beta-galactosidase vs beta-galactosidase (same thing,
+ INS 1102 hyphenated variant)
+
+ Root cause
+
+ The source name (e.g. aspergillus oryzae) IS functioning as the organism identifier,
+ which is correct at genus/species level. But strains differ in enzyme production profiles,
+ and f=flour treatment agent doesn't capture which enzyme.
+
+ Required metatags
+
+ organism_name : str  # "Lactobacillus delbrueckii subsp. bulgaricus",
+                      # "Streptococcus thermophilus"
+ enzyme_class  : enum # protease | amylase | lipase | lactase | rennet | mixed
+ ins_number    : str  # INS 1100/1101/1104 for enzyme preparations
+ For cultures the IFIC/EFSA strain notation matters:
+ the current source field (aspergillus oryzae) already holds organism at genus/species.
+ What's missing is the enzyme product identity.
+
+ ---
+ Cluster 5 — Wheat & Grain Flour Grades  [HIGH · 1 group · ~35 variants]
+
+ Where it appears
+
+ Source: wheat — e=milling, m=flour/fine powder, f=base ingredient (15 variants)
+ Also echoes in corn, rice, black gram, chickpea
+
+ What collapses
+
+ atta (whole wheat, stone-ground, high fibre) vs maida (refined, bleached, low-fibre)
+ vs resultant atta (extraction-rate intermediate) vs fortified wheat flour (iron/folic acid added)
+ — these have completely different nutritional profiles, regulatory treatment, and consumer meaning.
+ whole wheat flour is a health-claim category in many markets; maida is often regulated
+ separately. They should not share an EMF key.
+
+ Root cause
+
+ m=flour/fine powder is an output-form descriptor. It cannot encode extraction rate
+ (what fraction of the grain is retained) or fortification status.
+
+ Required metatags
+
+ milling_grade : enum
+   # whole (100% extraction) | semi_refined (80–90%) | refined (60–75%) |
+   # resultant (mixed extraction) | fortified | bleached
+ fortification_agent : str  # "iron, folic acid", "calcium carbonate" — for fortified variants
+ For multi-grain sources (corn, rice): same logic applies.
+ maize starch (>99% pure starch) vs corn flour (all-in-one grain flour) collapses
+ under m=starch flour in corn source — needs starch_purity or grain_fraction.
+
+ ---
+ Cluster 6 — Oil Fractions & Source Specificity  [HIGH · 3 groups · ~75 variants]
+
+ Where it appears
+
+ Sources: palm (groups [15][16]), sunflower (group [26]), soybean, corn, groundnut
+ EMF keys: e=NULL, m=oil, f=lipid base (10 sources), e=refining, m=oil, f=lipid base (6 sources)
+
+ What collapses
+
+ Under e=NULL, m=oil, f=lipid base in palm:
+ - oil / vegetable oil / edible vegetable oil (generic, source-unspecified)
+ - palm oil (source-specific)
+ - palm kernel oil (completely different composition — ~50% lauric acid vs ~44% palmitic)
+ - vegetable oil palmolein (liquid palm olein fraction)
+
+ Under e=refining, m=oil, f=lipid base in palm:
+ - refined palm oil vs refined palmolein — palmolein is a specific fractionation product
+ with lower melting point; cannot substitute for palm stearin
+
+ Under e=refining, m=oil, f=lipid base cross-source:
+ - refined sunflower oil (high linoleic, ~65% PUFA)
+ - refined soybean oil (high linolenic)
+ - refined groundnut oil (high oleic)
+ - refined vegetable oil (unspecified blend)
+ All share the same EMF key and appear in each other's source buckets.
+
+ Root cause
+
+ m=oil captures physical form, not chemical composition. f=lipid base is too functional-
+ level to distinguish oils by fatty acid profile. The source field should be the differentiator,
+ but "vegetable oil" variants that don't name the source are orphaned.
+
+ Required metatags
+
+ oil_fraction  : enum  # crude | refined | bleached_deodorised | hydrogenated | fractionated |
+                       # palmolein | stearin | kernel | high_oleic | mid_oleic
+ source_named  : bool  # True if the variant explicitly names the botanical source
+                       # False for generic "vegetable oil" / "edible oil" entries
+ Note: source_named=False variants are a data quality issue — the source field is the canonical
+ identifier, but many label texts say "vegetable oil" without naming the crop.
+
+ ---
+ Cluster 7 — Protein Fractions  [MEDIUM · 2 groups · ~25 variants]
+
+ Where it appears
+
+ Source: milk — e=NULL, m=protein concentrate, f=base ingredient (11 variants)
+ Source: soybean — overlapping hydrolysed protein groups
+
+ What collapses
+
+ Under m=protein concentrate:
+ - WPC (whey protein concentrate, ~35–80% protein)
+ - WPI (whey protein isolate, >90% protein) — different functional properties
+ - Casein / sodium caseinate / calcium caseinate — slow-digesting, acid-precipitated
+ - Total milk protein (MPC) — mixed casein + whey
+ - Paneer protein (from heat-acid precipitation)
+
+ Casein and whey are biochemically orthogonal proteins; sodium caseinate is an emulsifier
+ application-form while calcium caseinate has different solubility. These are not equivalent.
+
+ Required metatags
+
+ protein_fraction : enum  # casein | whey_concentrate | whey_isolate |
+                          # total_milk_protein | hydrolysate | plant_protein
+ protein_pct      : range # approximate protein percentage: "35-80", ">90"
+
+ ---
+ Cluster 8 — Sugar Forms  [MEDIUM · 1 group · ~20 variants]
+
+ Where it appears
+
+ Source: sugarcane — e=NULL, m=crystalline chemical, f=sweetener (12 variants)
+
+ What collapses
+
+ - sugar, sucrose (purified, refined cane sugar)
+ - isomalt (a sugar alcohol made from sucrose — different glycaemic index, calorie profile)
+ - mishri, sharkara (crystallised raw cane, unrefined, mineral-rich)
+ - khandsari (semi-refined cane sugar with molasses)
+ - đường, sucre, zucker (multilingual names for the same purified sucrose)
+
+ Isomalt is chemically a disaccharide alcohol — it has ~2 kcal/g vs sucrose's 4 kcal/g
+ and a GI of ~9 vs sucrose's ~65. Collapsing it with sucrose is nutritionally incorrect.
+ Traditional forms (mishri, khandsari) retain minerals and have specific regulatory status.
+
+ Required metatags
+
+ sugar_form   : enum  # refined_sucrose | raw_unrefined | sugar_alcohol |
+                      # molasses_partial | invert_sugar
+ language_tag : str   # ISO 639 code for multilingual name variants ("fr", "de", "vi")
+ The language_tag is a corpus-wide need, not just sugarcane — salz/zucker/sucre/
+ đường appear across many sources and inflate collision counts spuriously.
+
+ ---
+ Cluster 9 — Modified Starches  [MEDIUM · 3 groups · ~15 variants]
+
+ Where it appears
+
+ Sources: corn, tapioca
+ EMF keys: e=acetylation, m=modified starch powder, f=thickener/emulsifier/stabiliser
+ and e=NULL, m=modified starch powder, f=thickener
+
+ What collapses
+
+ INS 1401 (acid-treated), 1405 (oxidised), 1412 (distarch phosphate), 1422 (acetylated
+ distarch adipate), 1440 (hydroxypropyl starch), 1442 (hydroxypropyl distarch phosphate),
+ 1450 (starch sodium octenyl succinate) — all collapsed under the same EMF key.
+ These have different heat/acid stability, freeze-thaw stability, and rheological profiles.
+
+ Required metatag
+
+ ins_number (already defined in Cluster 1) covers this cluster fully.
+ The e field is partially useful (acetylation, oxidation) but doesn't capture cross-linking
+ vs substitution — the INS number uniquely encodes this.
+
+ ---
+ Cluster 10 — Generic whole/fresh pieces as Material  [LOW · 58 groups · ~188 variants]
+
+ Where it appears
+
+ Corpus-wide — e=NULL, m=whole/fresh pieces, f=base ingredient (32 sources, 97 variants)
+ and e=NULL, m=whole/fresh pieces, f=taste profile / spice (26 sources, 91 variants)
+
+ What collapses
+
+ This is the largest single EMF key by group count. Every whole ingredient that hasn't
+ been processed ends up here — a direct consequence of the 64.9% NULL rate on e_explicit.
+
+ Examples within chickpea: whole chickpea, split gram, split chick peas — different products.
+ Examples within cardamom: green cardamom seed, brown cardamom, large cardamom — different
+ flavor profiles, different markets, different pricing.
+ Examples within lentil: whole lentils, red lentils, black lentils, split yellow lentils —
+ used in different culinary applications and with different cooking times.
+
+ Root cause
+
+ This is partly a Type A failure (e_explicit NULL) and partly a Type B failure
+ (m=whole/fresh pieces doesn't capture variety/cultivar/processing grade).
+
+ Required metatags
+
+ Two-level fix:
+ 1. Fill e_explicit from e_could_be — many of these have e_could_be hints (Type A, fillable)
+ 2. Add a variety_grade field for agricultural commodities:
+ variety_grade : str  # "whole", "split", "husked", "dehulled", "green", "red", "black"
+                      # for spices: "whole pod", "seed only", "bark", "leaf"
+ This is low priority because most collisions here are Type D (linguistic duplicates)
+ or naturally disambiguated by source — chickpea, whole is unambiguous in context.
+
+ ---
+ Cross-Cutting Issue: f=base ingredient Overload  [SYSTEMIC]
+
+ f=base ingredient is used for 49 collision groups (12% of all groups), 97 variants.
+ It is the most overloaded f value in the corpus. It covers:
+ - Whole unprocessed foods (grain, fruit, vegetable)
+ - Processed extracts (protein isolate, fat fraction)
+ - Semi-processed concentrates (condensed milk, tomato paste)
+ - Microbial cultures (active lactic cultures)
+ - Vitamins and amino acids (fortification agents)
+
+ This is a taxonomy definition problem — f=base ingredient is being used as
+ "I don't know a better function" rather than as a meaningful functional category.
+
+ Fix
+
+ Split f=base ingredient into at minimum:
+ f=raw_agricultural_material   # whole/minimally processed primary ingredient
+ f=processed_ingredient        # extracted/refined form used as ingredient
+ f=fortification_agent         # nutrient added for enrichment
+ f=fermentation_agent          # culture, enzyme, starter
+ This single split would eliminate ~30% of f=base ingredient collisions without
+ requiring any new sub-fields.
+
+ ---
+ Summary: New Identifier Fields Required
+
+ ┌───────────────────────┬──────────────────┬───────────────┬──────────┬───────────────────┐
+ │         Field         │       Type       │   Resolves    │ Priority │  Approx coverage  │
+ ├───────────────────────┼──────────────────┼───────────────┼──────────┼───────────────────┤
+ │ ins_number            │ str (Codex code) │ Clusters 1, 9 │ CRITICAL │ ~400–500 variants │
+ ├───────────────────────┼──────────────────┼───────────────┼──────────┼───────────────────┤
+ │ compound_name         │ str              │ Clusters 1, 2 │ CRITICAL │ ~200 variants     │
+ ├───────────────────────┼──────────────────┼───────────────┼──────────┼───────────────────┤
+ │ nutrient_class        │ enum             │ Cluster 2     │ HIGH     │ ~75 variants      │
+ ├───────────────────────┼──────────────────┼───────────────┼──────────┼───────────────────┤
+ │ dairy_product_subtype │ enum             │ Cluster 3     │ HIGH     │ ~35 variants      │
+ ├───────────────────────┼──────────────────┼───────────────┼──────────┼───────────────────┤
+ │ culture_type          │ str/enum         │ Clusters 3, 4 │ HIGH     │ ~50 variants      │
+ ├───────────────────────┼──────────────────┼───────────────┼──────────┼───────────────────┤
+ │ enzyme_class          │ enum             │ Cluster 4     │ HIGH     │ ~15 variants      │
+ ├───────────────────────┼──────────────────┼───────────────┼──────────┼───────────────────┤
+ │ milling_grade         │ enum             │ Cluster 5     │ HIGH     │ ~50 variants      │
+ ├───────────────────────┼──────────────────┼───────────────┼──────────┼───────────────────┤
+ │ oil_fraction          │ enum             │ Cluster 6     │ HIGH     │ ~75 variants      │
+ ├───────────────────────┼──────────────────┼───────────────┼──────────┼───────────────────┤
+ │ protein_fraction      │ enum             │ Cluster 7     │ MEDIUM   │ ~25 variants      │
+ ├───────────────────────┼──────────────────┼───────────────┼──────────┼───────────────────┤
+ │ sugar_form            │ enum             │ Cluster 8     │ MEDIUM   │ ~20 variants      │
+ ├───────────────────────┼──────────────────┼───────────────┼──────────┼───────────────────┤
+ │ language_tag          │ ISO 639 str      │ Cross-cutting │ MEDIUM   │ ~30–50 variants   │
+ ├───────────────────────┼──────────────────┼───────────────┼──────────┼───────────────────┤
+ │ variety_grade         │ str              │ Cluster 10    │ LOW      │ ~50 variants      │
+ └───────────────────────┴──────────────────┴───────────────┴──────────┴───────────────────┘
+
+ ---
+ Implementation Path (Priority Order)
+
+ Tier 1 — Schema additions (new columns in tagged_variants.csv)
+
+ 1. ins_number — regex-extractable from existing variant strings for ~60% of cases
+ (pattern: INS \d+[a-z]? or ins \d+)
+ 2. compound_name — requires lookup table (INS code → IUPAC/common name)
+ 3. Fix f_explicit taxonomy: add fortification_agent, fermentation_agent,
+ raw_agricultural_material to the controlled vocabulary
+
+ Tier 2 — Taxonomy refinement (controlled vocabulary expansion)
+
+ 4. dairy_product_subtype — values derivable from existing variant names
+ 5. milling_grade — atta/maida/whole/refined derivable from variant names
+ 6. oil_fraction — palmolein/kernel/high_oleic extractable from variant tokens
+
+ Tier 3 — Lookup-dependent enrichment
+
+ 7. nutrient_class — requires vitamin/amino acid lookup table
+ 8. protein_fraction — requires dairy science taxonomy
+ 9. language_tag — requires ISO-639 language detection on variant names
+
+ ---
+ Key Insight: The E-Field NULL Problem Is a Symptom, Not the Root Cause
+
+ The 64.9% NULL rate on e_explicit drives Type A collisions, but filling these NULLs
+ from could_be only resolves 48/155 eligible groups (31%). The deeper problem is:
+
+ For Cluster 1 (INS additives): e=NULL because many additives don't have a production
+ process in scope — they are chemical synthesis products with no equivalent of "milling"
+ or "fermentation". The e field was designed for agricultural processing chains; it
+ structurally cannot differentiate between INS 471 and INS 472.
+
+ Conclusion: The EMF triad is sufficient for agricultural-origin ingredients. For
+ synthetic/mineral-source ingredients, a 4th axis (chemical_id / ins_number) is not
+ optional — it is the primary differentiator and EMF is the secondary context.
+
+ ---
+ Output
+
+ This document is the analytical output. No new code file is planned for this task.
+ The next implementation step would be:
+ 1. Auto-extract ins_number from existing variant strings into a new column
+ 2. Produce a vocabulary correction script that splits f=base ingredient into sub-types
+ 3. Build a lookup table mapping known chemical names → nutrient_class
