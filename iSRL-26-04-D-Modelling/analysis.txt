@@ -1,0 +1,594 @@
+ ======================================================================
+       SECTION 1: SOURCE COMPLEXITY VS ZONE
+     ======================================================================
+
+     ── 1a. Mean, median, distribution of source count per zone ──
+
+       Zone 1 (n=1325):
+         mean=1.091  median=1.0  std=0.451
+         distribution: {1: 1256, 2: 38, 3: 17, 4: 11, 6: 3}
+
+       Zone 2 (n=1191):
+         mean=1.226  median=1.0  std=0.577
+         distribution: {1: 1007, 2: 108, 3: 67, 4: 9}
+
+       Zone 3 (n=167):
+         mean=1.497  median=1.0  std=0.767
+         distribution: {1: 109, 2: 36, 3: 19, 4: 3}
+
+     ── 1b. Fraction of multi-source variants per zone ──
+       Zone 1: 69/1325 = 5.2%
+       Zone 2: 184/1191 = 15.4%
+       Zone 3: 58/167 = 34.7%
+       Chi-squared (zone1 vs zone3 multi-source): χ²=162.222, p=0.0000
+
+     ── 1c. Zone distribution for exactly-2 vs 3+ sources ──
+
+       exactly 2 sources (n=182):
+         Zone 1: 38 (20.9%)
+         Zone 2: 108 (59.3%)
+         Zone 3: 36 (19.8%)
+
+       3+ sources (n=129):
+         Zone 1: 31 (24.0%)
+         Zone 2: 76 (58.9%)
+         Zone 3: 22 (17.1%)
+
+     ── 1d. Top source combinations and their zone concentration ──
+
+       Top 15 multi-source combos:
+         [ 51]  palm | soybean | sunflower  →  zones: {1: 3, 2: 34, 3: 14}
+         [ 30]  corn | synthetic  →  zones: {1: 2, 2: 10, 3: 18}
+         [ 28]  corn | tapioca  →  zones: {1: 1, 2: 23, 3: 4}
+         [ 21]  groundnut | palm | soybean  →  zones: {2: 21}
+         [ 18]  groundnut | palm | soybean | sunflower  →  zones: {1: 7, 2: 8, 3: 3}
+         [ 13]  soybean | sunflower  →  zones: {2: 4, 3: 9}
+         [ 11]  apple | citrus  →  zones: {1: 5, 2: 6}
+         [  7]  coconut | palm kernel  →  zones: {1: 4, 2: 3}
+         [  7]  corn | sugarcane  →  zones: {2: 7}
+         [  6]  cotton | wood pulp  →  zones: {1: 1, 2: 5}
+         [  5]  corn | potato | tapioca  →  zones: {3: 5}
+         [  4]  beef | fish | pork  →  zones: {1: 2, 2: 2}
+         [  4]  cocoa | vanilla  →  zones: {1: 1, 2: 3}
+         [  4]  corn | groundnut | soybean  →  zones: {2: 4}
+         [  3]  chicory | sugarcane  →  zones: {2: 3}
+
+     ======================================================================
+       SECTION 2: PER-SOURCE ZONE SPREAD
+     ======================================================================
+
+     ── 2a. Zone distribution per source (top 30 by volume) ──
+
+       Source                         Total    Z1%    Z2%    Z3%
+       -------------------------------------------------------
+       synthetic                        343   16.6   74.6    8.7
+       mineral                          207   11.1   88.9    0.0
+       milk                             187   61.0   39.0    0.0
+       soybean                          172   25.6   52.9   21.5
+       palm                             163   20.2   68.7   11.0
+       corn                             115   17.4   57.4   25.2
+       sunflower                        105   21.0   49.5   29.5
+       sugarcane                         76    2.6   81.6   15.8
+       wheat                             73   71.2   28.8    0.0
+       groundnut                         55   21.8   72.7    5.5
+       rice                              54   74.1   24.1    1.9
+       tapioca                           44    6.8   59.1   34.1
+       mango                             31   51.6   48.4    0.0
+       cardamom                          28   85.7   10.7    3.6
+       chickpea                          27  100.0    0.0    0.0
+       almond                            25   84.0   16.0    0.0
+       cumin                             25   60.0   40.0    0.0
+       apple                             24   41.7   50.0    8.3
+       coconut                           24   50.0   50.0    0.0
+       chilli                            23   65.2   34.8    0.0
+       coriander                         23   65.2   34.8    0.0
+       carrot                            22   45.5   40.9   13.6
+       tulsi                             22   86.4    0.0   13.6
+       ginger                            21   66.7   28.6    4.8
+       cocoa                             19   57.9   42.1    0.0
+       citrus                            18   61.1   38.9    0.0
+       onion                             18   33.3   61.1    5.6
+       coffee                            17   35.3   52.9   11.8
+       turmeric                          17   35.3   47.1   17.6
+       grape                             16   25.0   75.0    0.0
+
+     ── 2b. Widest zone spread (present in all 3 zones) ──
+       Sources in all 3 zones (29):
+         apple: {1: 10, 2: 12, 3: 2}
+         barley: {1: 5, 2: 4, 3: 3}
+         cardamom: {1: 24, 2: 3, 3: 1}
+         carrot: {1: 10, 2: 9, 3: 3}
+         coffee: {1: 6, 2: 9, 3: 2}
+         corn: {1: 20, 2: 66, 3: 29}
+         ginger: {1: 14, 2: 6, 3: 1}
+         green tea: {1: 1, 2: 1, 3: 1}
+         groundnut: {1: 12, 2: 40, 3: 3}
+         lemon: {1: 3, 2: 9, 3: 1}
+         mint: {1: 7, 2: 3, 3: 3}
+         onion: {1: 6, 2: 11, 3: 1}
+         orange: {1: 6, 2: 8, 3: 1}
+         palm: {1: 33, 2: 112, 3: 18}
+         pistachio: {1: 12, 2: 2, 3: 1}
+         potato: {1: 9, 2: 2, 3: 5}
+         rice: {1: 40, 2: 13, 3: 1}
+         rose: {1: 1, 2: 2, 3: 1}
+         rosemary: {1: 1, 2: 1, 3: 2}
+         soybean: {1: 44, 2: 91, 3: 37}
+         stevia: {1: 1, 2: 4, 3: 3}
+         sugarcane: {1: 2, 2: 62, 3: 12}
+         sunflower: {1: 22, 2: 52, 3: 31}
+         synthetic: {1: 57, 2: 256, 3: 30}
+         tapioca: {1: 3, 2: 26, 3: 15}
+         tomato: {1: 7, 2: 2, 3: 1}
+         turmeric: {1: 6, 2: 8, 3: 3}
+         vanilla: {1: 5, 2: 4, 3: 5}
+         yeast: {1: 5, 2: 8, 3: 1}
+
+       Zone-locked sources (n=280):
+         acacia tree → only zone 1  (n=3)
+         bajra → only zone 1  (n=3)
+         bay laurel → only zone 1  (n=3)
+         beetroot → only zone 2  (n=4)
+         bibhitaki → only zone 1  (n=3)
+         black gram → only zone 1  (n=10)
+         carom → only zone 1  (n=6)
+         cashew → only zone 1  (n=14)
+         cassia → only zone 1  (n=3)
+         castor bean → only zone 2  (n=3)
+         chickpea → only zone 1  (n=27)
+         chives → only zone 1  (n=3)
+         cinnamon → only zone 1  (n=11)
+         curry leaf → only zone 1  (n=4)
+         dew bean → only zone 1  (n=3)
+         fig → only zone 1  (n=7)
+         fox nut → only zone 1  (n=3)
+         foxtail millet → only zone 1  (n=5)
+         green chilli → only zone 1  (n=3)
+         green gram → only zone 1  (n=7)
+         haritaki → only zone 1  (n=3)
+         jackfruit → only zone 1  (n=3)
+         lac beetle → only zone 1  (n=3)
+         lentil → only zone 1  (n=11)
+         licorice → only zone 1  (n=3)
+         long pepper → only zone 1  (n=4)
+         mace → only zone 1  (n=5)
+         millet → only zone 1  (n=9)
+         mortierella alpina → only zone 2  (n=4)
+         moth bean → only zone 1  (n=8)
+         mung bean → only zone 1  (n=12)
+         mushroom → only zone 1  (n=3)
+         mustard → only zone 1  (n=6)
+         oat → only zone 1  (n=4)
+         oats → only zone 1  (n=6)
+         ocimum gratissimum → only zone 1  (n=3)
+         ocimum sanctum → only zone 1  (n=4)
+         pea → only zone 1  (n=4)
+         pearl millet → only zone 1  (n=3)
+         peas → only zone 1  (n=3)
+         pigeon pea → only zone 1  (n=7)
+         pine resin → only zone 2  (n=3)
+         piper longum → only zone 1  (n=3)
+         pumpkin → only zone 1  (n=6)
+         quinoa → only zone 1  (n=3)
+         red chilli → only zone 2  (n=6)
+         sago → only zone 1  (n=3)
+         sal → only zone 2  (n=3)
+         seaweed → only zone 1  (n=4)
+         shea → only zone 2  (n=3)
+         sorghum → only zone 1  (n=8)
+         star anise → only zone 1  (n=5)
+         sweet potato → only zone 1  (n=3)
+         urad dal → only zone 1  (n=3)
+         walnut → only zone 1  (n=6)
+         watermelon → only zone 1  (n=4)
+
+     ── 2c. Zone 3 sources: do they also appear in zones 1 and 2? ──
+       Sources appearing in zone 3: 51
+       Also in zone 1: 36  |  Also in zone 2: 34  |  All 3: 29  |  Jump directly (only zone 3): 10
+       Zone-3-only sources: ['eucalyptus', 'garcinia cambogia', 'ginseng', 'green leaves', 'guarana', 'panax ginseng', 'quillaja', 'quillaja
+     saponaria', 'shankhapushpi', 'spearmint']
+
+     ── 2d. d_min and d_max variance per source per zone (top sources) ──
+
+       Source: synthetic
+         Zone 1 (n=57): d_min var=0.0077  d_max var=0.0145
+         Zone 2 (n=256): d_min var=0.0142  d_max var=0.0166
+         Zone 3 (n=30): d_min var=0.0015  d_max var=0.0010
+
+       Source: mineral
+         Zone 1 (n=23): d_min var=0.0014  d_max var=0.0048
+         Zone 2 (n=184): d_min var=0.0175  d_max var=0.0173
+
+       Source: milk
+         Zone 1 (n=114): d_min var=0.0056  d_max var=0.0072
+         Zone 2 (n=73): d_min var=0.0068  d_max var=0.0198
+
+       Source: soybean
+         Zone 1 (n=44): d_min var=0.0071  d_max var=0.0342
+         Zone 2 (n=91): d_min var=0.0099  d_max var=0.0121
+         Zone 3 (n=37): d_min var=0.0003  d_max var=0.0004
+
+       Source: palm
+         Zone 1 (n=33): d_min var=0.0101  d_max var=0.0306
+         Zone 2 (n=112): d_min var=0.0095  d_max var=0.0103
+         Zone 3 (n=18): d_min var=0.0010  d_max var=0.0011
+
+       Source: corn
+         Zone 1 (n=20): d_min var=0.0067  d_max var=0.0199
+         Zone 2 (n=66): d_min var=0.0092  d_max var=0.0184
+         Zone 3 (n=29): d_min var=0.0011  d_max var=0.0009
+
+       Source: sunflower
+         Zone 1 (n=22): d_min var=0.0056  d_max var=0.0287
+         Zone 2 (n=52): d_min var=0.0094  d_max var=0.0151
+         Zone 3 (n=31): d_min var=0.0004  d_max var=0.0005
+
+       Source: sugarcane
+         Zone 1 (n=2): d_min var=0.0214  d_max var=0.0085
+         Zone 2 (n=62): d_min var=0.0109  d_max var=0.0299
+         Zone 3 (n=12): d_min var=0.0007  d_max var=0.0008
+
+       Source: wheat
+         Zone 1 (n=52): d_min var=0.0048  d_max var=0.0089
+         Zone 2 (n=21): d_min var=0.0115  d_max var=0.0234
+
+       Source: groundnut
+         Zone 1 (n=12): d_min var=0.0001  d_max var=0.0059
+         Zone 2 (n=40): d_min var=0.0082  d_max var=0.0029
+         Zone 3 (n=3): d_min var=0.0011  d_max var=0.0000
+
+     ======================================================================
+       SECTION 3: ZONE 1 vs ZONE 2 BOUNDARY
+     ======================================================================
+
+     ── 3a. d_min and d_max distributions: zone 1 vs zone 2 ──
+
+       d_min:
+         Zone 1: mean=0.156  std=0.090  min=0.000  max=0.298  p25=0.063  p75=0.231
+         Zone 2: mean=0.480  std=0.117  min=0.300  max=0.696  p25=0.347  p75=0.576
+         t-test zone1 vs zone2: t=-77.853, p=0.0000e+00
+
+       d_max:
+         Zone 1: mean=0.304  std=0.161  min=0.000  max=0.861  p25=0.192  p75=0.426
+         Zone 2: mean=0.546  std=0.128  min=0.300  max=0.911  p25=0.474  p75=0.638
+         t-test zone1 vs zone2: t=-41.450, p=1.1806e-286
+
+     ── 3b. Fraction uncertain per zone ──
+       Zone 1: 595/1325 uncertain = 44.9%
+       Zone 2: 101/1191 uncertain = 8.5%
+       Zone 3: 0/167 uncertain = 0.0%
+
+     ── 3c. Top E/M/F tags for uncertain variants straddling zone 1/2 boundary ──
+       Uncertain variants in zone 1 or 2: n=696
+
+       Top E tags:
+          74  drying
+          22  milling
+          21  fermentation
+          12  solvent extraction
+          12  extract/oleoresin
+           9  roasting
+           4  synthetic flavors
+           3  ?hydrolysis
+
+       Top M tags:
+         271  whole/fresh pieces
+          63  oil
+          56  powder
+          34  crystalline chemical
+          31  extract/oleoresin
+          25  pulp/puree
+          12  flour/fine powder
+          11  leaf
+
+       Top F tags:
+         301  taste profile / spice
+         141  base ingredient
+          71  flavouring agent
+          68  lipid base
+          39  sweetener
+          11  colour
+           9  emulsifier
+           8  bulking agent
+
+     ── 3d. m_explicit distribution: zone 1 vs zone 2 ──
+
+       Zone 1 m_explicit:
+          477 (36.0%)  whole/fresh pieces
+           85 ( 6.4%)  flour/fine powder
+           84 ( 6.3%)  powder
+           69 ( 5.2%)  oil
+           52 ( 3.9%)  pulp/puree
+           48 ( 3.6%)  cut/sliced pieces
+           43 ( 3.2%)  crystalline chemical
+           28 ( 2.1%)  flakes
+           25 ( 1.9%)  protein concentrate
+           19 ( 1.4%)  gum
+
+       Zone 2 m_explicit:
+          425 (35.7%)  crystalline chemical
+          189 (15.9%)  powder
+           88 ( 7.4%)  extract/oleoresin
+           74 ( 6.2%)  oil
+           68 ( 5.7%)  fat fraction
+           48 ( 4.0%)  emulsifier powder
+           33 ( 2.8%)  juice
+           30 ( 2.5%)  dense block
+           18 ( 1.5%)  colour
+           16 ( 1.3%)  flakes
+
+     ── 3e. Most common f_explicit for zone 2 ──
+
+       Zone 2 f_explicit:
+        191 (16.0%)  base ingredient
+        149 (12.5%)  flavouring agent
+        144 (12.1%)  lipid base
+        110 ( 9.2%)  taste profile / spice
+         76 ( 6.4%)  sweetener
+         72 ( 6.0%)  acidity regulator
+         69 ( 5.8%)  colour
+         65 ( 5.5%)  emulsifier
+         43 ( 3.6%)  stabiliser
+         38 ( 3.2%)  flour treatment agent
+
+       Zone 1 f_explicit (top 5 for contrast):
+        720 (54.3%)  base ingredient
+        311 (23.5%)  taste profile / spice
+         70 ( 5.3%)  lipid base
+         55 ( 4.2%)  flavouring agent
+         12 ( 0.9%)  stabiliser
+
+     ======================================================================
+       SECTION 4: ZONE 2 vs ZONE 3 BOUNDARY
+     ======================================================================
+
+     ── 4a. f_explicit tags exclusive to zone 3 ──
+       Tags only in zone 3: ['emulsifier|sweetener', 'foaming agent']
+       Tags in zones 2+3 but NOT zone 1: ['acidity regulator', 'acidity regulator|emulsifier|sequestrant', 'acidity regulator|raising agent',
+     'anticaking agent', 'anticaking agent|colour', 'anticaking agent|emulsifier', 'antifoaming agent', 'antioxidant', 'antioxidant|preservative',
+     'base ingredient|sweetener', 'bleaching agent', 'carrier', 'colour', 'colour|sweetener', 'colour|taste profile / spice', 'emulsifier',
+     'emulsifier|stabiliser', 'emulsifier|sweetener', 'emulsifier|thickener', 'flour treatment agent', 'foaming agent', 'gelling
+     agent|stabiliser|thickener', 'lipid base|taste profile / spice', 'packaging gas', 'preservative', 'propellant', 'sequestrant', 'solvent',
+     'stabiliser|emulsifier', 'sweetener|base ingredient', 'sweetener|bulking agent', 'sweetener|flavouring agent', 'sweetener|humectant',
+     'sweetener|taste profile / spice', 'thickener|bulking agent', 'thickener|stabiliser|gelling agent']
+
+     ── 4b. e_explicit distribution in zone 3 vs zones 1 and 2 ──
+
+       Zone 1 e_explicit (n=1325):
+          110 ( 8.3% of zone)  milling  [97% of all "milling" entries]
+           81 ( 6.1% of zone)  drying  [46% of all "drying" entries]
+           41 ( 3.1% of zone)  fermentation  [30% of all "fermentation" entries]
+           16 ( 1.2% of zone)  roasting  [44% of all "roasting" entries]
+           10 ( 0.8% of zone)  cut/sliced pieces  [100% of all "cut/sliced pieces" entries]
+            7 ( 0.5% of zone)  skim/defatted meal  [100% of all "skim/defatted meal" entries]
+            6 ( 0.5% of zone)  pasteurization  [75% of all "pasteurization" entries]
+            4 ( 0.3% of zone)  de-husking  [100% of all "de-husking" entries]
+            2 ( 0.2% of zone)  pulp/puree  [67% of all "pulp/puree" entries]
+            2 ( 0.2% of zone)  ?puffing  [100% of all "?puffing" entries]
+            2 ( 0.2% of zone)  skim/defatted meal|milling  [100% of all "skim/defatted meal|milling" entries]
+            2 ( 0.2% of zone)  extract/oleoresin  [12% of all "extract/oleoresin" entries]
+            1 ( 0.1% of zone)  corn|tapioca  [100% of all "corn|tapioca" entries]
+            1 ( 0.1% of zone)  ?baking  [50% of all "?baking" entries]
+            1 ( 0.1% of zone)  churning  [11% of all "churning" entries]
+            1 ( 0.1% of zone)  milling|baking  [100% of all "milling|baking" entries]
+            1 ( 0.1% of zone)  coagulation  [100% of all "coagulation" entries]
+            1 ( 0.1% of zone)  ?dextrinization  [50% of all "?dextrinization" entries]
+            1 ( 0.1% of zone)  ?extrusion|frying  [100% of all "?extrusion|frying" entries]
+            1 ( 0.1% of zone)  fractionation  [7% of all "fractionation" entries]
+            1 ( 0.1% of zone)  ?pre-cooking  [100% of all "?pre-cooking" entries]
+            1 ( 0.1% of zone)  frying  [100% of all "frying" entries]
+            1 ( 0.1% of zone)  ?candied  [100% of all "?candied" entries]
+            1 ( 0.1% of zone)  distillation  [12% of all "distillation" entries]
+            1 ( 0.1% of zone)  ?reverse osmosis  [100% of all "?reverse osmosis" entries]
+            1 ( 0.1% of zone)  concentration  [6% of all "concentration" entries]
+            1 ( 0.1% of zone)  concentrate  [100% of all "concentrate" entries]
+            1 ( 0.1% of zone)  de-husking|milling  [100% of all "de-husking|milling" entries]
+            1 ( 0.1% of zone)  ?enzyme treatment  [100% of all "?enzyme treatment" entries]
+
+       Zone 2 e_explicit (n=1191):
+           95 ( 8.0% of zone)  drying  [54% of all "drying" entries]
+           72 ( 6.0% of zone)  fermentation  [53% of all "fermentation" entries]
+           41 ( 3.4% of zone)  refining  [79% of all "refining" entries]
+           34 ( 2.9% of zone)  solvent extraction  [28% of all "solvent extraction" entries]
+           23 ( 1.9% of zone)  ?hydrolysis  [88% of all "?hydrolysis" entries]
+           20 ( 1.7% of zone)  roasting  [56% of all "roasting" entries]
+           15 ( 1.3% of zone)  extract/oleoresin  [88% of all "extract/oleoresin" entries]
+           15 ( 1.3% of zone)  concentration  [94% of all "concentration" entries]
+           14 ( 1.2% of zone)  fractionation  [93% of all "fractionation" entries]
+           12 ( 1.0% of zone)  churning|clarification  [100% of all "churning|clarification" entries]
+           10 ( 0.8% of zone)  hydrogenation  [100% of all "hydrogenation" entries]
+            9 ( 0.8% of zone)  synthetic flavors  [53% of all "synthetic flavors" entries]
+            8 ( 0.7% of zone)  churning  [89% of all "churning" entries]
+            8 ( 0.7% of zone)  cold pressing|solvent extraction  [100% of all "cold pressing|solvent extraction" entries]
+            8 ( 0.7% of zone)  drying|milling  [100% of all "drying|milling" entries]
+            8 ( 0.7% of zone)  interesterification  [33% of all "interesterification" entries]
+            7 ( 0.6% of zone)  distillation  [88% of all "distillation" entries]
+            6 ( 0.5% of zone)  milling|refining  [100% of all "milling|refining" entries]
+            5 ( 0.4% of zone)  ?extrusion  [100% of all "?extrusion" entries]
+            4 ( 0.3% of zone)  hydrogenation|interesterification  [100% of all "hydrogenation|interesterification" entries]
+            4 ( 0.3% of zone)  ?inversion  [100% of all "?inversion" entries]
+            4 ( 0.3% of zone)  refining|milling  [100% of all "refining|milling" entries]
+            3 ( 0.3% of zone)  milling  [3% of all "milling" entries]
+            3 ( 0.3% of zone)  roasting|milling  [100% of all "roasting|milling" entries]
+            3 ( 0.3% of zone)  antifoaming agent  [100% of all "antifoaming agent" entries]
+            2 ( 0.2% of zone)  ?enzymatic reaction  [100% of all "?enzymatic reaction" entries]
+            2 ( 0.2% of zone)  pasteurization  [25% of all "pasteurization" entries]
+            2 ( 0.2% of zone)  ?spray drying  [100% of all "?spray drying" entries]
+            2 ( 0.2% of zone)  ?compounding  [100% of all "?compounding" entries]
+            2 ( 0.2% of zone)  bleaching  [100% of all "bleaching" entries]
+            2 ( 0.2% of zone)  hydrogenation|refining  [100% of all "hydrogenation|refining" entries]
+            2 ( 0.2% of zone)  interesterification|refining  [100% of all "interesterification|refining" entries]
+            1 ( 0.1% of zone)  ?baking  [50% of all "?baking" entries]
+            1 ( 0.1% of zone)  interesterification|hydrogenation  [100% of all "interesterification|hydrogenation" entries]
+            1 ( 0.1% of zone)  pulp/puree  [33% of all "pulp/puree" entries]
+            1 ( 0.1% of zone)  ?smoking  [100% of all "?smoking" entries]
+            1 ( 0.1% of zone)  rendering  [100% of all "rendering" entries]
+            1 ( 0.1% of zone)  ?extraction  [100% of all "?extraction" entries]
+            1 ( 0.1% of zone)  drying|cut/sliced pieces  [100% of all "drying|cut/sliced pieces" entries]
+            1 ( 0.1% of zone)  fermentation|drying  [100% of all "fermentation|drying" entries]
+            1 ( 0.1% of zone)  clarification|churning  [100% of all "clarification|churning" entries]
+            1 ( 0.1% of zone)  fermentation|milling  [100% of all "fermentation|milling" entries]
+            1 ( 0.1% of zone)  ?enzymatic treatment  [100% of all "?enzymatic treatment" entries]
+            1 ( 0.1% of zone)  fermentation|distillation  [100% of all "fermentation|distillation" entries]
+            1 ( 0.1% of zone)  ?dextrinization  [50% of all "?dextrinization" entries]
+            1 ( 0.1% of zone)  drying|skim/defatted meal  [100% of all "drying|skim/defatted meal" entries]
+            1 ( 0.1% of zone)  clarification  [100% of all "clarification" entries]
+            1 ( 0.1% of zone)  milling|fermentation  [100% of all "milling|fermentation" entries]
+            1 ( 0.1% of zone)  ?enzymatic  [100% of all "?enzymatic" entries]
+            1 ( 0.1% of zone)  ?spray drying|drying  [100% of all "?spray drying|drying" entries]
+            1 ( 0.1% of zone)  fractionation|interesterification  [100% of all "fractionation|interesterification" entries]
+            1 ( 0.1% of zone)  ?ozonization  [100% of all "?ozonization" entries]
+            1 ( 0.1% of zone)  raising agent  [100% of all "raising agent" entries]
+            1 ( 0.1% of zone)  acetylation  [6% of all "acetylation" entries]
+            1 ( 0.1% of zone)  drying|?spray drying  [100% of all "drying|?spray drying" entries]
+            1 ( 0.1% of zone)  ?encapsulation  [100% of all "?encapsulation" entries]
+            1 ( 0.1% of zone)  refining|hydrogenation  [100% of all "refining|hydrogenation" entries]
+
+       Zone 3 e_explicit (n=167):
+           86 (51.5% of zone)  solvent extraction  [72% of all "solvent extraction" entries]
+           23 (13.8% of zone)  fermentation  [17% of all "fermentation" entries]
+           16 ( 9.6% of zone)  interesterification  [67% of all "interesterification" entries]
+           16 ( 9.6% of zone)  acetylation  [94% of all "acetylation" entries]
+           11 ( 6.6% of zone)  refining  [21% of all "refining" entries]
+            8 ( 4.8% of zone)  synthetic flavors  [47% of all "synthetic flavors" entries]
+            4 ( 2.4% of zone)  synthetic vanillin  [100% of all "synthetic vanillin" entries]
+            3 ( 1.8% of zone)  ?hydrolysis  [12% of all "?hydrolysis" entries]
+
+     ── 4c. Mean f_score zone 2 vs zone 3; E/M/F as separator ──
+
+       Zone 2: e_score mean=0.218  m_score mean=0.689  f_score mean=0.519
+                e_score std=0.309   m_score std=0.310   f_score std=0.296
+
+       Zone 3: e_score mean=0.808  m_score mean=0.900  f_score mean=0.750
+                e_score std=0.121   m_score std=0.065   f_score std=0.091
+       e_score: t=-24.366, p=4.6139e-109, Cohen d=2.511
+       m_score: t=-8.774, p=5.0710e-18, Cohen d=0.943
+       f_score: t=-10.021, p=7.5089e-23, Cohen d=1.056
+
+     ======================================================================
+       SECTION 5: TAG EXPLICITNESS AND UNCERTAINTY
+     ======================================================================
+
+     ── 5a. Fraction NULL explicit per axis per zone ──
+       Zone 1  E_explicit NULL: 77.4%
+       Zone 1  M_explicit NULL: 20.7%
+       Zone 1  F_explicit NULL: 5.9%
+
+       Zone 2  E_explicit NULL: 60.5%
+       Zone 2  M_explicit NULL: 5.8%
+       Zone 2  F_explicit NULL: 0.5%
+
+       Zone 3  E_explicit NULL: 0.0%
+       Zone 3  M_explicit NULL: 0.0%
+       Zone 3  F_explicit NULL: 0.0%
+
+
+     ── 5b. question_tags distribution and top ?-prefixed tags ──
+       Zone 1: 54/1325 question_tags = 4.1%
+       Zone 2: 94/1191 question_tags = 7.9%
+       Zone 3: 3/167 question_tags = 1.8%
+
+       Top ?-prefixed tags (from e_could_be + m_could_be + f_could_be):
+           41  ?hydrolysis
+           25  ?spray drying
+           12  ?extrusion
+           12  ?prebiotic
+           11  ?compounding
+           10  ?probiotic
+            4  ?iodization
+            4  ?inversion
+            3  ?extraction
+            3  ?caramelisation
+            3  ?enzyme
+            2  ?enzymatic
+            2  ?enzymatic conversion
+            2  ?baking
+            2  ?enzymatic reaction
+            2  ?puffing
+            2  ?dextrinization
+            1  ?hydrogenation
+            1  ?glycerolysis
+            1  ?granulation
+
+     ── 5c. d_gap (d_max - d_min) by zone ──
+       Zone 1: mean=0.1476  std=0.1461  p25=0.0000  p75=0.2460  max=0.6030
+       Zone 2: mean=0.0668  std=0.0998  p25=0.0000  p75=0.1540  max=0.5130
+       Zone 3: mean=0.0067  std=0.0133  p25=0.0000  p75=0.0100  max=0.0840
+
+     ── 5d. Variants with NULL e_explicit but multiple e_could_be options ──
+       Count: 82
+       Zone distribution: {1: 58, 2: 24}
+       Top e_could_be combos:
+           31  cold pressing|refining|solvent extraction
+           12  cold pressing|solvent extraction|refining
+           10  cold pressing|solvent extraction
+            5  drying|milling
+            5  cold pressing|refining|solvent extraction|hydrogenation|interesterification
+            3  solvent extraction|refining
+            2  ?spray drying|concentration
+            2  ?spray drying|freeze drying
+            2  bleaching agent|flour treatment
+            1  ?extrusion|baking
+
+     ======================================================================
+       SECTION 6: COMPOSITE SCORE STRUCTURE
+     ======================================================================
+
+     ── 6a. Correlation matrix: e_score, m_score, f_score ──
+
+       Full dataset:
+              e_score  m_score  f_score
+     e_score    1.000    0.138    0.044
+     m_score    0.138    1.000    0.393
+     f_score    0.044    0.393    1.000
+
+       Zone 1:
+              e_score  m_score  f_score
+     e_score    1.000   -0.128   -0.143
+     m_score   -0.128    1.000   -0.263
+     f_score   -0.143   -0.263    1.000
+
+       Zone 2:
+              e_score  m_score  f_score
+     e_score    1.000   -0.357   -0.519
+     m_score   -0.357    1.000    0.001
+     f_score   -0.519    0.001    1.000
+
+       Zone 3:
+              e_score  m_score  f_score
+     e_score    1.000   -0.417   -0.324
+     m_score   -0.417    1.000   -0.101
+     f_score   -0.324   -0.101    1.000
+
+     ── 6b. Variance of each axis per zone (which axis discriminates most) ──
+
+       Zone 1 variance:  e=0.0277  m=0.0707  f=0.0237
+       → Dominant axis: m_score
+
+       Zone 2 variance:  e=0.0957  m=0.0962  f=0.0877
+       → Dominant axis: m_score
+
+       Zone 3 variance:  e=0.0146  m=0.0042  f=0.0082
+       → Dominant axis: e_score
+
+     ── 6c. Variants where two scores are low but one is high ──
+
+       e_low + m_low + f_high: n=172
+       Zone dist: {1: 106, 2: 66}
+       Top sources: {'synthetic': 25, 'tulsi': 11, 'acacia': 11, 'tea': 8, 'palm | soybean | sunflower': 8}
+
+       e_high + m_low + f_low: n=71
+       Zone dist: {1: 58, 2: 13}
+       Top sources: {'milk': 25, 'wheat': 11, 'synthetic': 4, 'soybean': 3, 'coffee': 3}
+
+       m_high + e_low + f_low: n=315
+       Zone dist: {1: 181, 2: 134}
+       Top sources: {'mineral': 82, 'synthetic': 60, 'milk': 30, 'palm': 20, 'soybean': 12}
+
+       e_low + m_high + f_high: n=411
+       Zone dist: {2: 411}
+       Top sources: {'synthetic': 134, 'mineral': 94, 'palm | soybean | sunflower': 23, 'sugarcane': 16, 'corn | tapioca': 11}
+
+     ======================================================================
+       ANALYSIS COMPLETE
+     ======================================================================
