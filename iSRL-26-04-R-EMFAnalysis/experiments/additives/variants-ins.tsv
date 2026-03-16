@@ -1,0 +1,359 @@
+variant	ins_number
+ins 631	631
+ins 941	941
+ins 999	999
+ins 420i	420i
+talc ins 553	553
+color ins 102	102
+color ins 110	110
+color ins 100	100
+color ins 162	162
+color ins 163	163
+color ins 171	171
+color ins 141	141
+color ins 160	160
+color ins 129	129
+color ins 133	133
+color ins 132	132
+color ins 127	127
+color ins 124	124
+color ins 122	122
+color ins 101	101
+color ins 150a	150a
+color ins 150c	150c
+color ins 150d	150d
+color ins 160b	160b
+color ins 160c	160c
+colour ins 100	100
+color ins 163c	163c
+color ins 160a	160a
+color ins e122	122
+datem ins 472e	472e
+color ins 161g	161g
+color ins 100 i	100
+enzyme ins 1100	1100
+mineral ins 224	224
+mineral ins 202	202
+gelatin ins 428	428
+enzyme ins 1104	1104
+caramel ins 150c	150c
+annatto ins 160b	160b
+curcumin ins 100	100
+beet red ins 162	162
+diluent ins 1520	1520
+improver ins 472	472
+color ins 160b ii	160b
+color ins 160a ii	160a
+sweetener ins 960	960
+coagulant ins 575	575
+humectant ins 451	451
+humectant ins 452	452
+thickener ins 415	415
+sweetener ins 950	950
+thickener ins 466	466
+thickener ins 414	414
+cake gel ins 470a	470a
+thickener ins 508	508
+improver ins 1100	1100
+improver ins 1102	1102
+improver ins 1104	1104
+humectant ins 422	422
+thickener ins 412	412
+acidulant ins 296	296
+thickener ins 440	440
+sweetener ins 955	955
+pullulan ins 1204	1204
+thaumatin ins 957	957
+color ins 160a iii	160a
+thickener ins 1422	1422
+thickener ins 1405	1405
+thickener ins 1412	1412
+thickener ins 1442	1442
+thickener ins 1401	1401
+thickener ins 1440	1440
+sweetener ins 960a	960a
+sweetener ins e960	960
+stabilizer ins 450	450
+texturizer ins 451	451
+emulsifier ins 452	452
+stabilizer ins 452	452
+stabilizer ins 339	339
+stabilizer ins 340	340
+stabilizer ins 341	341
+stabilizer ins 170	170
+emulsifier ins 415	415
+stabilizer ins 415	415
+maltitol ins 965 i	965
+emulsifier ins 442	442
+stabilizer ins 466	466
+stabilizer ins 460	460
+flavouring ins 627	627
+flavouring ins 631	631
+acacia gum ins 414	414
+emulsifier ins 414	414
+stabilizer ins 414	414
+emulsifier ins 400	400
+emulsifier ins 429	429
+emulsifier ins 436	436
+emulsifier ins 478	478
+emulsifier ins 479	479
+emulsifier ins 481	481
+stabilizer ins 400	400
+stabilizer ins 436	436
+stabilizer ins 481	481
+emulsifier ins 491	491
+stabilizer ins 491	491
+emulsifier ins 433	433
+stabilizer ins 433	433
+emulsifier ins 475	475
+stabilizer ins 475	475
+emulsifier ins 476	476
+emulsifier ins 477	477
+stabilizer ins 477	477
+emulsifier ins 492	492
+stabilizer ins 508	508
+stabilizer ins 516	516
+emulsifier ins 445	445
+stabilizer ins 445	445
+stabilizer ins 412	412
+emulsifier ins 322	322
+stabilizer ins 322	322
+malic acid ins 296	296
+emulsifier ins 471	471
+stabilizer ins 471	471
+emulsifier ins 440	440
+stabilizer ins 440	440
+stabilizer ins 435	435
+stabilizer ins 401	401
+stabilizer ins 331	331
+emulsifier ins 420	420
+stabilizer ins 444	444
+stabilizer ins 417	417
+stabilizer ins 337	337
+stabilizer ins 472	472
+stabilizer ins 418	418
+stabilizer ins 406	406
+propellant ins 941	941
+food color ins 150d	150d
+annatto ins 160b ii	160b
+stabilizer ins 1422	1422
+emulsifier ins 1450	1450
+stabilizer ins 1450	1450
+stabilizer ins 1400	1400
+stabilizer ins 1404	1404
+aregulators ins 341	341
+humectant ins 451 i	451
+sequestrant ins 451	451
+sequestrant ins 452	452
+antioxidant ins 330	330
+acetic acid ins 260	260
+emulsifier ins 4806	4806
+stabilizer ins 4806	4806
+stabilizer ins 1202	1202
+stabilizer ins e440	440
+stabilizer ins 1201	1201
+sequestrant ins 385	385
+antioxidant ins 386	386
+emulsifier ins 4726	4726
+emulsifier ins 472b	472b
+emulsifier ins 472c	472c
+stabilizer ins 1102	1102
+stabilizer ins 1505	1505
+stabilizer ins 1204	1204
+rising agent ins 575	575
+texturizer ins 451 i	451
+emulsifier ins 452 i	452
+stabilizer ins 452 i	452
+preservative ins 341	341
+rising agent ins 503	503
+stabilizer ins 170 i	170
+emulsifier ins 460 i	460
+stabilizer ins 460 i	460
+preservative ins 212	212
+preservative ins 224	224
+preservative ins 202	202
+preservative ins 211	211
+preservative ins 200	200
+humectant ins 420 ii	420
+emulsifier ins 472 e	472
+curcumin color ins 10	10
+raising agent ins 341	341
+emulsifier ins 339iii	339ii
+stabilizer ins 339 ii	339
+firming agent ins 341	341
+raising agent ins 503	503
+raising agent ins 500	500
+caramel color ins 415	415
+cucumber seed ins 396	396
+gelling agent ins 508	508
+glazing agent ins 903	903
+glazing agent ins 901	901
+glazing agent ins 904	904
+soya lecithin ins 322	322
+gelling agent ins 440	440
+capsule shell ins 428	428
+caramel color ins 150a	150a
+color caramel ins 150a	150a
+color paprika ins 160c	160c
+sodium acetate ins 262	262
+stabilizer ins 450 iii	450
+raising agent ins 3410	3410
+raising agent ins 5030	5030
+raising agent ins 500i	500i
+wheat improver ins 510	510
+wheat improver ins 923	923
+emulsifier soy ins 322	322
+gelling agent ins 4401	4401
+reducing agent ins 223	223
+wheat improver ins 923	923
+starch acetate ins 1420	1420
+leavening agent ins 341	341
+leavening agent ins 450	450
+leavening agent ins 500	500
+raising agent ins 500 i	500
+cake emulsifier ins 491	491
+salt substitute ins 508	508
+flour treatment ins 510	510
+flour improver ins 1100	1100
+wheat improver ins 1100	1100
+flour improver ins 1101	1101
+flour improver ins 1104	1104
+flour treatment ins 923	923
+bleaching agent ins 223	223
+flour treatment ins 923	923
+modified starch ins 1404	1404
+modified starch ins 1420	1420
+modified starch ins 1440	1440
+modified starch ins 1442	1442
+anticaking agent ins 470	470
+anticaking agent ins 504	504
+sugar substitute ins 960	960
+anticaking agent ins 341	341
+emulsifying salt ins 341	341
+anticaking agent ins 503	503
+raising agent ins 500 ii	500
+acidifying agent ins 330	330
+acidifying agent ins 260	260
+acitifying agent ins 260	260
+anticaking agent ins 551	551
+anticaking agent ins 536	536
+anticaking agent ins 541	541
+anticaking agent ins 553	553
+flavour enhancer ins 627	627
+flavour enhancer ins 631	631
+flavouring agent ins 631	631
+flavour enhancer ins 635	635
+anticaking agent ins 414	414
+flavour enhancer ins 620	620
+flavour enhancer ins 621	621
+flavour enhancer ins 629	629
+flavour enhancer ins 630	630
+flavour enhancer ins 637	637
+flavour enhancer ins 508	508
+flour treatment ins 1100	1100
+thickening agent ins 412	412
+sugar substitute ins 420	420
+emulsifying salt ins 341	341
+foam stabilizer ins 1505	1505
+batter thickener ins 1412	1412
+anticaking agent ins 4700	4700
+acidity regulator ins 261	261
+acidity regulator ins 262	262
+acidity regulator ins 290	290
+acidity regulator ins 394	394
+acidity regulator ins 524	524
+acidity regulator ins 525	525
+acidity regulator ins 575	575
+acidity regulator ins e30	30
+acidity regulator ins 338	338
+acidity regulator ins 341	341
+acidity regulator ins 451	451
+acidity regulator ins 339	339
+acidity regulator ins 340	340
+acidity regulator ins 503	503
+acidity regulator ins 504	504
+acidity regulator ins 501	501
+acidity regulator ins 500	500
+acidity regulator ins 330	330
+acidity regulator ins 260	260
+anticaking agent ins e551	551
+flavour enhancer ins 6351	6351
+stabilising agent ins 414	414
+flavour enhancer ins 1101	1101
+ammonium chloride ins 510	510
+stabilising agent ins 445	445
+emulsifying agent ins 412	412
+stabilizing agent ins 412	412
+acidity regulator ins 270	270
+acidity regulator ins 196	196
+acidity regulator ins 296	296
+stabilising agent ins 471	471
+stabilizing agent ins 471	471
+stabilizing agent ins 440	440
+stabilizing agent ins 401	401
+acidity regulator ins 331	331
+stabilising agent ins 331	331
+acidity regulator ins 325	325
+acidity regulator ins 334	334
+magnesium stearate ins 470	470
+magnesium sulphate ins 518	518
+cake raising agent ins 341	341
+acidity regulator ins e330	330
+acidity regulator ins e260	260
+antifoaming agent ins 900a	900a
+acidity regulator ins e331	331
+paprika oleoresin ins 160ci	160ci
+acidity regulator ins 501 i	501
+acidity regulator ins 500 i	500
+anti-foaming agent ins 900a	900a
+enzyme preparation ins 1100	1100
+stabilizer guar gum ins 412	412
+acidity regulator ins 350 1	350
+enzyme preparation ins 1102	1102
+enzyme preparation ins 1104	1104
+anticaking agent ins 341 iii	341
+ammonium bicarbonate ins 503	503
+acidity regulator ins 500 ii	500
+acidity regulator ins 331 ii	331
+glucono delta lactone ins 575	575
+emulsifier stabilizer ins 415	415
+polyvinylpyrrolidone ins 1202	1202
+flour treatment agent ins 516	516
+flour treatment agent ins 510	510
+flour treatment agent ins 223	223
+flour treatment agent ins 223	223
+croscarmellose sodium ins 468	468
+polyvinylpyrrolidone ins 1202	1202
+flour treatment agent ins 1101	1101
+flour treatment agent ins 1100	1100
+flour treatment agent ins 1102	1102
+flour treatment agent ins 1104	1104
+flour treatment agent ins 1223	1223
+flour treatment agent ins 1223	1223
+antifoaming agent dmps ins 900a	900a
+anticaking agent silica ins 551	551
+emulsifier soy lecithin ins 322	322
+emulsifier ins 471 plant origin	471
+color paprika oleoresin ins 160c	160c
+emulsifier soya lecithin ins 322	322
+sodium aluminium sulphate ins 521	521
+mineral dough conditioner ins 223	223
+gelling agent agar powder ins 406	406
+acidity regulator malic acid ins 296	296
+acidity regulator citric acid ins 330	330
+citric acid acidity regulator ins 330	330
+preservative potassium sorbate ins 202	202
+stabilizer and thickener pectin ins 440	440
+raising agent sodium bicarbonate ins 500	500
+anticaking agent silicon dioxide ins 551	551
+emulsifying and stabilising agent ins 415	415
+emulsifying and stabilizing agent ins 1422	1422
+leavening agent sodium bicarbonate ins 500	500
+emulsifier carboxymethyl cellulose ins 466	466
+acidity regulator citric acid powder ins 330	330
+acetylated distarch adipate thickener ins 1422	1422
+acidity regulator sodium bicarbonate ins 500 i	500
+antifoaming agent dimethyl polysiloxane ins 900	900
+stabilizer dipotassium hydrogen phosphate ins 340	340
+stabilizer ins 466 sodium carboxymethyl cellulose	466
+emulsifier mono and diglycerides of fatty acids ins 471	471

@@ -1,0 +1,28 @@
+name: Owl Bot
+
+on:
+  discussion_comment:
+    types: [created]
+
+jobs:
+  owl:
+    runs-on: ubuntu-latest
+    permissions:
+      discussions: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install requests
+      - name: Run Owl
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMENT_BODY: ${{ github.event.comment.body }}
+          COMMENT_ID: ${{ github.event.comment.node_id }}
+          COMMENT_AUTHOR: ${{ github.event.comment.user.login }}
+          DISCUSSION_ID: ${{ github.event.discussion.node_id }}
+          DISCUSSION_NUMBER: ${{ github.event.discussion.number }}
+          REPO: ${{ github.repository }}
+        run: python .github/scripts/owl_bot.py
