@@ -20,9 +20,14 @@
     Link: https://fssai.gov.in/upload/uploadfiles/files/Food_Additives_Regulations.pdf  
 
 **Court Ruling:**
-  - Indian court judgments (Indian Kanoon)  
-    Paragraph 5–6  
-    Link: https://indiankanoon.org/doc/175612067/  
+  
+  - **Primary Source**
+      - High Court Of Delhi   
+        Link: https://delhihighcourt.nic.in/app/showFile/1646996691459_92139_2022.pdf/2022
+  - **Secondary Source**
+      - Indian court judgments (Indian Kanoon)  
+        Paragraph 5–6  
+        Link: https://indiankanoon.org/doc/189442159/ 
 
 ---
 
@@ -49,8 +54,13 @@
 ### [5] What does the Delhi High Court ruling establish about source declaration independent of quantity?
 
 **Court Ruling:**
-  - Indian court judgments (Indian Kanoon)  
-    Link: https://indiankanoon.org/doc/175612067/  
+
+  - **Primary Source**
+      - High Court Of Delhi  
+        Link: https://delhihighcourt.nic.in/app/showFile/1646996691459_92139_2022.pdf/2022
+  - **Secondary Source**
+      - Indian court judgments (Indian Kanoon)   
+        Link: https://indiankanoon.org/doc/189442159/
 
 ---
 
