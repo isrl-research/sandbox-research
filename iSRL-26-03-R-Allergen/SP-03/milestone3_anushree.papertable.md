@@ -2,15 +2,15 @@
 **Sub-part: US and Japan Allergen Declaration**  
 **Anushree Balaji**
 
-| S.No | Document | DOI / Link | Claim Supported | Type of Support | Relevance |
-|------|----------|------------|-----------------|-----------------|-----------|
-| 1 | FALCPA (2004) | FDA website | ALLER.US.C.01 | Direct | Defines 8 major food allergens |
-| 2 | FASTER Act (2021) | FDA website | ALLER.US.C.02 | Direct | Adds sesame as 9th major allergen |
-| 3 | FALCPA | FDA website | ALLER.US.C.03 | Direct + Inferred | Presence-based labeling (no threshold specified) |
-| 4 | FDA Guidance (21 CFR 117) | FDA website | ALLER.US.C.04 | Direct + Inferred | “May contain” labeling voluntary, not sufficient |
-| 5 | FALCPA Sec. 204 | FDA website | ALLER.US.C.05 | Inferred | Advisory labeling treated as industry practice |
-| 6 | Food Labeling Act (Japan) | Japanese Law Translation | ALLER.JP.C.01 | Direct | Allergen information required in labeling |
-| 7 | Food Labeling Act (Japan) | Japanese Law Translation | ALLER.JP.C.02 | Inferred | Allergen list defined outside Act (delegated) |
-| 8 | USDA/FAS Report (Japan) | FAS website | ALLER.JP.C.03 | Direct | 7 mandatory allergens identified |
-| 9 | USDA/FAS Report (Japan) | FAS website | ALLER.JP.C.04 | Direct + Inferred | Presence-based labeling; allergens labeled per ingredient |
-| 10 | USDA/FAS Report (Japan) | FAS website | ALLER.JP.C.05 | Direct | “May contain” labeling not permitted |
+| S.No | Document                         | DOI / Link                                                                                                                                                                         | Claim Supported | Type              | Relevance                                                                 |
+| ---- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ----------------- | ------------------------------------------------------------------------- |
+| 1    | FALCPA (2004)                    | [https://www.congress.gov/108/plaws/publ282/PLAW-108publ282.pdf](https://www.congress.gov/108/plaws/publ282/PLAW-108publ282.pdf)                                                   | ALLER.US.C.01   | Direct            | Sec. 201 – defines 8 major allergens                                      |
+| 2    | FASTER Act (2021)                | [https://www.congress.gov/117/plaws/publ11/PLAW-117publ11.pdf](https://www.congress.gov/117/plaws/publ11/PLAW-117publ11.pdf)                                                       | ALLER.US.C.02   | Direct            | Sec. 2 – adds sesame as 9th allergen                                      |
+| 3    | FALCPA (2004)                    | same as above                                                                                                                                                                      | ALLER.US.C.03   | Direct + Inferred | Sec. 203 – labeling triggered by presence of allergen                     |
+| 4    | FDA Guidance (Food Allergen Q&A) | [https://www.fda.gov/media/117410/download](https://www.fda.gov/media/117410/download)                                                                                             | ALLER.US.C.04   | Direct            | Q D.15 – advisory (“may contain”) not sufficient                          |
+| 5    | FALCPA (2004)                    | same as above                                                                                                                                                                      | ALLER.US.C.05   | Inferred          | Sec. 204 – advisory labeling recognized as industry practice              |
+| 6    | Food Labeling Act (Japan)        | [https://www.japaneselawtranslation.go.jp/en/laws/view/2601/en](https://www.japaneselawtranslation.go.jp/en/laws/view/2601/en)                                                     | ALLER.JP.C.01   | Direct            | Art. 4 – allergen labeling required                                       |
+| 7    | Food Labeling Act (Japan)        | same as above                                                                                                                                                                      | ALLER.JP.C.02   | Direct + Inferred | Delegates detailed requirements to Food Labeling Standards                |
+| 8    | Food Labeling Standards (食品表示基準) | [https://www.caa.go.jp/en/policy/food_labeling/assets/food_labeling_cms204_240425_01.pdf](https://www.caa.go.jp/en/policy/food_labeling/assets/food_labeling_cms204_240425_01.pdf) | ALLER.JP.C.03   | Direct            | Allergen labeling section – specified allergens list                      |
+| 9    | Food Labeling Standards (食品表示基準) | same as above                                                                                                                                                                      | ALLER.JP.C.04   | Direct + Inferred | Allergen labeling section – presence-based (ingredient-level) declaration |
+| 10   | Food Labeling Standards (食品表示基準) | same as above                                                                                                                                                                      | ALLER.JP.C.05   | Inferred          | No explicit provision for precautionary (“may contain”) labeling          |
