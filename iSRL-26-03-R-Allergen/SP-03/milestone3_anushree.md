@@ -100,36 +100,33 @@ Jurisdictions: United States (FALCPA + FASTER Act) and Japan
 * What I infer: The Act mandates allergen disclosure but does not specify which allergens, indicating that the specific list of allergens is defined in separate Food Labeling Standards (Cabinet Office Ordinance).
 
 *2. are allergens labeled regardless of quantity or only above thresholds?*
-* Source: [USDA/FAS report “Japan – An Overview of the Food Labeling Standard” (2014)](https://www.fas.usda.gov/data/japan-overview-food-labeling-standard), [LINK1](https://apps.fas.usda.gov/newgainapi/api/report/downloadreportbyfilename?filename=An%20Overview%20of%20the%20Food%20Labeling%20Standard_Tokyo_Japan_5-26-2017.pdf)
-* Note:
-  * The USDA/FAS report was used to understand the Japanese labeling system, but it is not a primary legal source.
-  * Excerpt: 
-    * (LINK1) `At this time, there are seven allergens for which labeling is mandatory and twenty allergens for which labeling is recommended`(page 3)
-    * `f a product contains the same allergen in multiple ingredients in aprocessed product (e.g., egg salad contains both eggs as well as mayonnaise containing eggs), then the individual allergen labeling provision requires that the allergen be labeled each time it appears in an ingredient, further crowding package labeling. The Standard does not permit the use of “may contain” language; the CAA’s current practice of explicitly labeling only that which a product does contain remains in place. For the latest list of allergen labeling, please see the CAA’s website at http://www.caa.go.jp/foods/index18.html (in Japanese).`
-    * A table under that that lists the labelling requirement vs allergen: `Abalone, Mackerel, Squid, Salmon, Salmon Roe, Cashew Nut, Walnut, Matsutake Mushroom, Sesame, Soybean, Yam, Apple, Banana, Kiwifruit, Orange, Peach, Beef, Chicken, Gelatin, Pork`
-    * `The Standard separates nutritional labeling components into three groups: mandatory, voluntary but recommended, and voluntary (see table below). The Standard also allows manufacturers or importers to utilize GOJ nutritional reference values for individual ingredients in order to calculate a product’s overall nutritional value. In addition, importers may convert nutritional values of imported products into the Standard’s format. `
-    * Table under lists: `Saturated Fat, Dietary Fiber` as required labelling
-* Why this answers the question: This excerpt indicates that allergen labeling in Japan is based on the presence of allergens within ingredients, as allergens must be labeled each time they appear, rather than being tied to any explicit quantitative threshold.
+* Source: [Food Labeling Standards (食品表示基準) – Consumer Affairs Agency (CAA)](https://www.caa.go.jp/en/policy/food_labeling/assets/food_labeling_cms204_240425_01.pdf), [Consumer Affairs Agency of Japan](https://www.caa.go.jp/en/policy/food_labeling/)
+* Excerpt:
+  * `Presence of the following items must be indicated.`
+  * `Labelling is mandatory if the packaged food includes these allergens.`
+  * Allergen labeling section, p. 2
+* Why this answers the question: The excerpt establishes that allergen labeling is required when specified allergens are present in food products, indicating that the obligation to label is triggered by the inclusion of allergens rather than by any defined quantitative threshold.
 * What the source directly states:
-  * There are mandatory and recommended allergen categories for labeling.
-  * Allergens must be labeled each time they appear in ingredients.
-  * The system focuses on explicit identification of contained allergens in products.
-* What I infer: Japan appears to follow a presence-based labeling approach, where allergens are declared when present in ingredients, but the source does not explicitly specify whether quantitative thresholds exist or not.
+  * Allergen labeling is mandatory when specified allergens are included in packaged food.
+  * The requirement is explicitly tied to the presence of allergens in the product.
+* What I infer: Since the regulation requires labeling based on the presence of allergens and does not specify any quantitative threshold, the system follows a presence-based labeling approach.
 * Gap:
-  * No explicit primary legal source confirming whether quantitative thresholds apply in Japan.
+  * No explicit provision specifying quantitative thresholds for allergen declaration is identified in the Food Labeling Standards.
 
 *3. are "may contain" / precautionary labels required, regulated, or voluntary?*
-* Source: [USDA/FAS report “Japan – An Overview of the Food Labeling Standard” (2014)](https://www.fas.usda.gov/data/japan-overview-food-labeling-standard), [LINK1](https://apps.fas.usda.gov/newgainapi/api/report/downloadreportbyfilename?filename=An%20Overview%20of%20the%20Food%20Labeling%20Standard_Tokyo_Japan_5-26-2017.pdf)
-* Note:
-  * The USDA/FAS report was used to understand the Japanese labeling system, but it is not a primary legal source.
+* Source: [Food Labeling Standards (食品表示基準) – Consumer Affairs Agency (CAA)](https://www.caa.go.jp/en/policy/food_labeling/assets/food_labeling_cms204_240425_01.pdf), [Consumer Affairs Agency of Japan](https://www.caa.go.jp/en/policy/food_labeling/)
 * Excerpt:
-  * Again, same page3, point 3
-  * `Allergen Labeling – The previous food labelling... The Standard does not permit the use of “may contain” language;...`
-* Why this answers the question: This excerpt directly addresses whether precautionary (“may contain”) labeling is allowed under Japanese regulations, clearly indicating its regulatory status.
+  * `Presence of the following items must be indicated.`
+  * `Labelling is mandatory if the packaged food includes these allergens.`
+  * `Allergens included are listed in ( ).`
+  * `Allergens are listed individually.`
+* Why this answers the question: The Standards define allergen labeling in terms of indicating the presence of specified allergens and integrating them into ingredient labeling. The framework focuses on declaring allergens that are actually present in food products and does not include any provisions addressing precautionary or advisory labeling such as “may contain” statements.
 * What the source directly states:
-  * The Food Labeling Standard does not permit the use of “may contain” language.
-  * Allergen labeling is restricted to explicitly declaring allergens that are actually present in the product.
-* What I infer: Precautionary allergen labeling is not allowed in Japan, and the system relies solely on definitive, presence-based disclosure rather than advisory warnings.
+  * Allergen labeling is mandatory when specified allergens are present in food products.
+  * Allergens are declared through ingredient labeling and are listed explicitly.
+* What I infer: Since the regulatory framework specifies labeling only for allergens that are present and does not define or include precautionary labeling mechanisms, precautionary (“may contain”) labeling is not a standardized or regulated category under the Food Labeling Standards.
+* Gap:
+  * No explicit provision permitting or regulating precautionary (“may contain”) labeling is identified in the Food Labeling Standards.
 
 *4. how must allergen information appear on the package?*
 * Source: [Food Labeling Act plus](https://www.japaneselawtranslation.go.jp/en/laws/view/2601/en)
@@ -157,4 +154,4 @@ ALLER.JP.C.01 – Japan mandates allergen labeling
 ALLER.JP.C.02 – Allergen list defined outside Act  
 ALLER.JP.C.03 – Japan has 7 mandatory allergens  
 ALLER.JP.C.04 – Presence-based labeling system  
-ALLER.JP.C.05 – PAL not permitted  
+ALLER.JP.C.05 – No explicit provision for precautionary allergen labeling
