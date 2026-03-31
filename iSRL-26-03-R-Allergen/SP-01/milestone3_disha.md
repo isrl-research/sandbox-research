@@ -60,9 +60,6 @@ Claim :- ALLER.FSSAI.C.01
 
 - #### Any of these ingredients must be listed on packaged foods. The only exception is certain gluten derivatives below 20 mg/kg.
   
-- #### Oils, distilled alcoholic beverages from listed allergens, and raw agricultural commodities are exempt from allergen labelling under Regulation 5(14) of the FSSAI Labelling and Display Regulations, 2020. However, the regulation does not give any specific quantity limit or processing rule for these exemptions. Unlike sulphites must be declared at 10 mg/kg or more, no such limit is given for oils or alcoholic beverages.
-
-- #### For oils and distilled alcoholic beverages, the exemption is given based on the type of product, not on any specific quantity or processing level. The regulation does not clearly explain the reason for this exemption — whether it is because allergen proteins are removed during processing or simply because the law classifies these products as exempt.
 
 ---
 
@@ -85,7 +82,9 @@ Claim :- ALLER.FSSAI.C.02
 
 - #### For general allergens (i–vii), any detectable presence triggers “Contains” labeling. Sulphites must be declared if ≥10 mg/kg otherwise not.  
 
-- #### Oils, alcoholic beverages from listed allergens, and raw agricultural commodities may not need labeling.  
+- #### Oils, distilled alcoholic beverages from listed allergens, and raw agricultural commodities are exempt from allergen labelling under Regulation 5(14) of the FSSAI Labelling and Display Regulations, 2020. However, the regulation does not give any specific quantity limit or processing rule for these exemptions. Unlike sulphites must be declared at 10 mg/kg or more, no such limit is given for oils or alcoholic beverages.
+
+- #### For oils and distilled alcoholic beverages, the exemption is given based on the type of product, not on any specific quantity or processing level. The regulation does not clearly explain the reason for this exemption — whether it is because allergen proteins are removed during processing or simply because the law classifies these products as exempt. 
 
 - #### For cross-contamination, manufacturers may declare “May contain [allergen]”. “Contains” requirements are direct; “may contain” is optional. Aside from sulphites, any presence of listed allergens requires labeling.
 
