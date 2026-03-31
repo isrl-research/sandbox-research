@@ -59,6 +59,10 @@ Claim :- ALLER.FSSAI.C.01
 >      (viii) Sulphite in concentrations of 10mg/kg or more (To be declared as sulphite)                  
 
 - #### Any of these ingredients must be listed on packaged foods. The only exception is certain gluten derivatives below 20 mg/kg.
+  
+- #### Oils, distilled alcoholic beverages from listed allergens, and raw agricultural commodities are exempt from allergen labelling under Regulation 5(14) of the FSSAI Labelling and Display Regulations, 2020. However, the regulation does not give any specific quantity limit or processing rule for these exemptions. Unlike sulphites must be declared at 10 mg/kg or more, no such limit is given for oils or alcoholic beverages.
+
+- #### For oils and distilled alcoholic beverages, the exemption is given based on the type of product, not on any specific quantity or processing level. The regulation does not clearly explain the reason for this exemption — whether it is because allergen proteins are removed during processing or simply because the law classifies these products as exempt.
 
 ---
 
@@ -200,6 +204,7 @@ Claim :- ALLER.FSSAI.C.06
 - #### Found no FSSAI notifications or amendments after 2020 changing allergen labeling rules (no new gazette notifications).  
 - #### Delhi HC 2021 case resulted in instructions but no formal regulation change.  
 - #### Found no further threshold rules beyond what Reg 5(14) states. (For example, no additional “may contain” mandates or new allergen lists beyond the eight listed.)
+- #### Expected to find a refining-based explanation for oil exemption but no explicit clause found in primary FSSAI regulations.
 
 ---
 
